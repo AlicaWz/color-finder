@@ -1,0 +1,28 @@
+.listitem {
+  display: flex;
+  gap: var(--spacing-16);
+  background-color: var(--med-grey);
+  border-radius: 8px;
+  padding: var(--spacing-8) var(--spacing-16);
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+
+  .color-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+  }
+
+  .colorprev {
+    border-radius: 100px;
+    width: 16px;
+    height: 16px;
+    background-color: red;
+  }
+
+  .colorname {
+    font-weight: bold;
+  }
+}

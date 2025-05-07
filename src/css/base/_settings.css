@@ -13,6 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100vw;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spacing-16);
+
+  @media (--lg) {
+    padding: 0;
+  }
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,12 +36,15 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  min-width: 100vw;
   min-height: 100vh;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+p {
+  margin: 0;
 }
