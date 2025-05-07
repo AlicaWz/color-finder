@@ -1,4 +1,5 @@
 import ListItem, { type ListItemProps } from "../../library/listItem";
+import './index.css'
 
 export type Props = {
     colors?: ListItemProps[]
@@ -6,7 +7,7 @@ export type Props = {
 
 export default function ColorList({ colors }: Props) {
     return (
-        <section>
+        <section className="color-list">
             {
                 colors && colors.map((color: ListItemProps, index: number) => {
                     return (

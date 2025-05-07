@@ -1,4 +1,5 @@
 import './index.css'
+//import { Copy } from 'lucide-react';
 
 export type ListItemProps = {
     name?: string;
@@ -13,15 +14,29 @@ export default function ListItem({
     group
 }: ListItemProps) {
 
+    // function CopyButton(color: string) {
+
+    //     const handleCopy = (color) => {
+
+    //     }
+    //     return (
+    //         <button
+    //             onClick={handleCopy(color)}
+    //         >
+    //            <Copy />
+    //         </button>
+    //     )
+    // }
+
     return (
         <div className="listitem" id={name}>
             <span className="color-wrapper">
-                <div className="colorprev"></div>
-                <p className='colorname'>{name}</p>
+                <div className="prev" style={{background: `#${hex}`}}></div>
+                <p className='name'>{name}</p>
             </span>
-            <p>{hex}</p>
-            <p>{rgb}</p>
-            <p>{group}</p>
+            <span className="hex"><p>#{hex}</p></span>
+            <span className="rgb"><p> RGB: {rgb}</p></span>
+            <p className="group">{group}</p>
         </div>
     )
 }

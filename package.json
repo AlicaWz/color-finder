@@ -10,8 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
+    "autoprefixer": "^10.4.21",
     "axios": "^1.9.0",
+    "clsx": "^2.1.1",
+    "cssnano-preset-default": "^7.0.7",
+    "lucide-react": "^0.508.0",
     "nanostores": "^1.0.1",
+    "postcss-custom-media": "^11.0.5",
+    "postcss-each": "^1.1.0",
+    "postcss-extend": "^1.0.5",
+    "postcss-mixins": "^11.0.3",
+    "postcss-nested": "^7.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
