@@ -10,20 +10,22 @@ export default function ColorList({ colors, count }: Props) {
     return (
         <section className="color-list">
             Colors: {count}
-            {
-                colors && colors.map((color: ListItemProps, index: number) => {
-                    return (
-                        <ListItem
-                            key={index}
-                            name={color.name}
-                            hex={color.hex}
-                            rgb={color.rgb}
-                            group={color.group}
-                        />
-                    )
-                })
+            <ul aria-label="List of Colors" role="group">
+                {
+                    colors && colors.map((color: ListItemProps, index: number) => {
+                        return (
+                            <ListItem
+                                key={index}
+                                name={color.name}
+                                hex={color.hex}
+                                rgb={color.rgb}
+                                group={color.group}
+                            />
+                        )
+                    })
 
-            }
+                }
+            </ul>
         </section>
     )
 }

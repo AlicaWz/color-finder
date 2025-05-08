@@ -43,6 +43,10 @@
       font-size: 18px;
       padding-left: var(--spacing-16);
       width: auto;
+
+      @media (--lg) {
+        padding-left: 0;
+      }
     }
   }
 

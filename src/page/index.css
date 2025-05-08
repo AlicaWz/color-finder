@@ -1,0 +1,19 @@
+.home {
+  margin: var(--spacing-32) 0;
+  
+  @media (--lg) {
+    margin: var(--spacing-64) 0;
+  }
+  
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    align-items: center;
+    margin-bottom: var(--spacing-48);
+
+    @media (--lg) {
+      flex-direction: row;
+    }
+  }
+}

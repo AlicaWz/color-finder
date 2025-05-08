@@ -29,7 +29,7 @@ export default function ListItem({
     // }
 
     return (
-        <div className="listitem" id={name}>
+        <li className="listitem" id={name} role="listitem">
             <span className="color-wrapper">
                 <div className="prev" style={{background: `#${hex}`}}></div>
                 <p className='name'>{name}</p>
@@ -37,6 +37,6 @@ export default function ListItem({
             <span className="hex"><p>#{hex}</p></span>
             <span className="rgb"><p> RGB: {rgb}</p></span>
             <p className="group">{group}</p>
-        </div>
+        </li>
     )
 }
