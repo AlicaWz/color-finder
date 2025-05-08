@@ -12,7 +12,7 @@
   background-color: var(--med-grey);
   transition: background-color 0.3s ease;
 
-  &:activ, &:focus {
+  &.active {
     outline: 1px solid var(--white);
 
   }

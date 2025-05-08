@@ -36,8 +36,21 @@ export default function ChipButton({ label }: ChipButtonProps) {
         }
     }
 
+    function handleClick() {
+        const button = document.querySelector(`.chipbutton[aria-label="Filter Button for: ${label}"]`);
+        if (button) {
+            button.classList.toggle('active');
+        }
+
+
+    }
+
     return (
-        <button className="chipbutton" onClick={() => console.log("click", label)} aria-label={`Filter Button for: ${label}`}>
+        <button
+            className="chipbutton"
+            onClick={() => handleClick()}
+            aria-label={`Filter Button for: ${label}`}
+        >
             {label && <div className="prev" style={{ background: getCorrectColor(label) }}></div>}
             {label && <p>{label}</p>}
         </button>
