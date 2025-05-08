@@ -1,40 +1,37 @@
-//import './App.css'
-
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useStore } from '@nanostores/react'
 import ColorList from "../modules/list";
 import SearchHeader from "../modules/searchHeader";
 import axios from "axios";
 import type { ListItemProps } from "../library/listItem";
+import { $data, setData, $groups, setGroups } from "../system /store/data";
 
 export type DataProps = {
   colors?: ListItemProps[];
-  count: number;
-  message: string;
+  count?: number;
 }
 
 export default function Home() {
-
-  const [data, setData] = useState<DataProps>();
+  const data = useStore($data)
+  const groups = useStore($groups)
 
   useEffect(() => {
-
     (async () => {
       try {
         const response = await axios.get("https://www.csscolorsapi.com/api/colors");
-        const data = response.data;
-        setData(data); // use split if you have to, I dont think you need that.
+        setData(response.data);
+        setGroups(response.data);
       } catch (err) {
         console.error(err);
       }
     })()
-
   }, [])
 
   return (
     <>
-      <h1>Hello World</h1>
-      <SearchHeader />
-      <ColorList colors={data?.colors} />
+      <h1>Color Finder</h1>
+      <SearchHeader groups={groups} />
+      <ColorList colors={data?.colors} count={data?.count} />
     </>
   )
 }

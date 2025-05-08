@@ -1,8 +1,18 @@
 import { atom } from "nanostores";
-import type Props from "../../library/listItem/index";
+import type { ListItemProps } from "../../library/listItem/index";
+import type { DataProps } from "../../page/home";
 
-export const $colors = atom<(typeof Props)[]>([]);
+export const $data = atom<DataProps>({});
+export const $groups = atom<string[]>([]);
 
-export function addColor(color: typeof Props) {
-  $colors.set([...$colors.get(), color]);
-}
+export const setData = (newData: (DataProps)) => {
+  $data.set(newData);
+};
+
+export const setGroups = (data: DataProps) => {
+  const groups = data.colors?.flatMap((item: ListItemProps) => item.group);
+  if (!groups) return;
+  const uniqueGroups = new Set(groups);
+  const resolvedGroups = Array.from(uniqueGroups);
+  $groups.set(resolvedGroups);
+};

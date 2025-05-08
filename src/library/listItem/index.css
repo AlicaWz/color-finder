@@ -42,6 +42,7 @@
       font-weight: bold;
       font-size: 18px;
       padding-left: var(--spacing-16);
+      width: auto;
     }
   }
 

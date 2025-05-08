@@ -11,6 +11,9 @@ importers:
       '@csstools/postcss-global-data':
         specifier: ^3.0.0
         version: 3.0.0(postcss@8.5.3)
+      '@nanostores/react':
+        specifier: ^1.0.0
+        version: 1.0.0(nanostores@1.0.1)(react@19.1.0)
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.3)
@@ -429,6 +432,13 @@ packages:
   '@modelcontextprotocol/sdk@1.11.0':
     resolution: {integrity: sha512-k/1pb70eD638anoi0e8wUGAlbMJXyvdV4p62Ko+EZ7eBe1xMx8Uhak1R5DgfoofsK5IBBnRwsYGTaLZl+6/+RQ==}
     engines: {node: '>=18'}
+
+  '@nanostores/react@1.0.0':
+    resolution: {integrity: sha512-eDduyNy+lbQJMg6XxZ/YssQqF6b4OXMFEZMYKPJCCmBevp1lg0g+4ZRi94qGHirMtsNfAWKNwsjOhC+q1gvC+A==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
+      react: '>=18.0.0'
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2183,6 +2193,11 @@ snapshots:
       zod-to-json-schema: 3.24.5(zod@3.24.4)
     transitivePeerDependencies:
       - supports-color
+
+  '@nanostores/react@1.0.0(nanostores@1.0.1)(react@19.1.0)':
+    dependencies:
+      nanostores: 1.0.1
+      react: 19.1.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
