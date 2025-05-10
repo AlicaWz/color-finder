@@ -3,7 +3,7 @@ import ChipButton from "@library/chip";
 import SearchInput from "@library/searchInput";
 
 export type Props = {
-    groups?: string[]
+    groups: (string | undefined)[]
 }
 export default function SearchHeader({ groups }: Props) {
 

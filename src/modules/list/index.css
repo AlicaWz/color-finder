@@ -9,4 +9,15 @@
         flex-direction: column;
         gap: var(--spacing-16);
     }
+
+    .noResults {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+
+        h4 {
+            text-align: center;
+        }
+    }
 }

@@ -36,7 +36,7 @@ export default function Home() {
         <h1>Color Finder</h1>
       </div>
       <SearchHeader groups={groups} />
-      <ColorList colors={data?.colors} count={data?.count} />
+      <ColorList colors={data?.colors} />
     </div>
   )
 }
