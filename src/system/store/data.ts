@@ -2,12 +2,17 @@ import { atom } from "nanostores";
 import type { ListItemProps } from "../../library/listItem/index";
 import type { DataProps } from "../../page/home";
 
-export const $data = atom<DataProps>({});
+export const $data = atom<DataProps>({}); // is it needed to have it inside the nanostore?
+export const $filteredData = atom<ListItemProps[]>([]);
 export const $groups = atom<string[]>([]);
 export const $searchTerm = atom<string>("");
 
 export const setData = (newData: (DataProps)) => {
   $data.set(newData);
+};
+
+export const setFilteredData = (newData: (ListItemProps[])) => {
+  $filteredData.set(newData);
 };
 
 export const setGroups = (data: DataProps) => {
