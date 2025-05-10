@@ -1,12 +1,12 @@
 import './index.css'
 import { useEffect } from "react";
 import { useStore } from '@nanostores/react'
-import ColorList from "../modules/list";
-import SearchHeader from "../modules/searchHeader";
+import ColorList from "@modules/list";
+import SearchHeader from "@modules/searchHeader";
 import axios from "axios";
-import type { ListItemProps } from "../library/listItem";
-import { $data, setData, $groups, setGroups } from "../system /store/data";
-import logo from "../images/logo.png";
+import type { ListItemProps } from "@library/listItem";
+import { $data, setData, $groups, setGroups } from "@system/store/data";
+import logo from "@images/logo.png";
 
 export type DataProps = {
   colors?: ListItemProps[];

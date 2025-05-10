@@ -1,4 +1,4 @@
-import ListItem, { type ListItemProps } from "../../library/listItem";
+import ListItem, { type ListItemProps } from "@library/listItem";
 import './index.css'
 
 export type Props = {

@@ -1,7 +1,18 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types", "src/system/types"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+        "@public/*": ["public/*"],
+        "@css/*": ["src/css/*"],
+        "@images/*": ["src/images/*"],
+        "@library/*": ["src/library/*"],
+        "@modules/*": ["src/modules/*"],
+        "@pages/*": ["src/pages/*"],
+        "@system/*": ["src/system/*"],
+      },
+  }
 }

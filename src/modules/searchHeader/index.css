@@ -8,9 +8,5 @@
     flex-wrap: wrap;
     width: 100%;
     gap: var(--spacing-12) var(--spacing-8);
-
-    @media (--lg) {
-      flex-wrap: nowrap;
-    }
   }
 }

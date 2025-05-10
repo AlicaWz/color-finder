@@ -4,6 +4,7 @@ import type { DataProps } from "../../page/home";
 
 export const $data = atom<DataProps>({});
 export const $groups = atom<string[]>([]);
+export const $searchTerm = atom<string>("");
 
 export const setData = (newData: (DataProps)) => {
   $data.set(newData);
@@ -15,4 +16,9 @@ export const setGroups = (data: DataProps) => {
   const uniqueGroups = new Set(groups);
   const resolvedGroups = Array.from(uniqueGroups);
   $groups.set(resolvedGroups);
+};
+
+
+export const setSearchTerm = (term: string) => {
+  $searchTerm.set(term);
 };

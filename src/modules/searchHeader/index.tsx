@@ -1,6 +1,6 @@
 import './index.css'
-import ChipButton from "../../library/chip";
-import SearchInput from "../../library/searchInput";
+import ChipButton from "@library/chip";
+import SearchInput from "@library/searchInput";
 
 export type Props = {
     groups?: string[]
