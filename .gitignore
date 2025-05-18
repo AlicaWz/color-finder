@@ -27,3 +27,4 @@ dist-ssr
 .vscode/settings.json
 .qodo
 .history.sqlite
+.vercel
