@@ -5,7 +5,7 @@ import ColorList from "@modules/list";
 import SearchHeader from "@modules/searchHeader";
 import axios from "axios";
 import type { ListItemProps } from "@library/listItem";
-import { $data, setData, $groups, setGroups } from "@system/store/data";
+import { $data, setData, setGroups } from "@system/store/data";
 import logo from "@images/logo.png";
 
 export type DataProps = {
@@ -15,7 +15,6 @@ export type DataProps = {
 
 export default function Home() {
   const data = useStore($data)
-  const groups = useStore($groups)
 
   useEffect(() => {
     (async () => {
@@ -29,13 +28,18 @@ export default function Home() {
     })()
   }, [])
 
+  const groups = data.colors?.flatMap((item: ListItemProps) => item.group);
+  if (!groups) return;
+  const uniqueGroups = new Set(groups);
+  const resolvedGroups = Array.from(uniqueGroups);
+
   return (
     <div className="home">
       <div className="heading">
         <img src={logo} alt="logo" width={64} height={64}/>
         <h1>Color Finder</h1>
       </div>
-      <SearchHeader groups={groups} />
+      <SearchHeader groups={resolvedGroups} />
       <ColorList colors={data?.colors} />
     </div>
   )

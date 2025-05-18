@@ -1,7 +1,7 @@
 import './index.css'
 import ListItem, { type ListItemProps } from "@library/listItem";
 import { useStore } from '@nanostores/react';
-import { $filteredData, $searchTerm } from '@system/store/data.ts';
+import { $filteredData, $searchTerm, $groups } from '@system/store/data.ts';
 
 export type Props = {
     colors?: ListItemProps[]
@@ -9,9 +9,10 @@ export type Props = {
 
 export default function ColorList({ colors }: Props) {
     const searchTerm = useStore($searchTerm)
+    const groups = useStore($groups)
     const filteredData = useStore($filteredData)
 
-    const resolvedColors = searchTerm ? filteredData : colors
+    const resolvedColors = (searchTerm || groups.length) || searchTerm && groups.length ? filteredData : colors
 
     return (
         <section className="color-list">
@@ -35,7 +36,7 @@ export default function ColorList({ colors }: Props) {
                         (
                             <div className="noResults">
                                 <h4>Sorry there are no results for your search. <br />
-                                    Please tryy again!
+                                    Please try again!
                                 </h4>
                             </div>
                         )

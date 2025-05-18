@@ -17,6 +17,7 @@ export default function SearchInput() {
         }
     }
 
+
     return (
         <form className="search-input">
             <input

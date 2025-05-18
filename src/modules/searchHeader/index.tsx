@@ -14,7 +14,7 @@ export default function SearchHeader({ groups }: Props) {
                 {
                     groups?.map((group, index) => {
                         return (
-                            <ChipButton label={group} key={index} />
+                            <ChipButton groupName={group} key={index} />
                         )
                     })
                 }

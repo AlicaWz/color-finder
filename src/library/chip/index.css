@@ -14,12 +14,17 @@
 
   &.active {
     outline: 1px solid var(--white);
-
   }
 
   &:hover {
     cursor: pointer;
     background-color: var(--light-grey);
+  }
+
+  svg {
+    position: absolute;
+    left: 18px;
+    top: 14.5px;
   }
 
   @media (--lg) {
@@ -30,5 +35,12 @@
     width: 16px;
     height: 16px;
     border-radius: 100px;
+  }
+
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
 }

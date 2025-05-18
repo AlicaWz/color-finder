@@ -15,12 +15,8 @@ export const setFilteredData = (newData: (ListItemProps[])) => {
   $filteredData.set(newData);
 };
 
-export const setGroups = (data: DataProps) => {
-  const groups = data.colors?.flatMap((item: ListItemProps) => item.group);
-  if (!groups) return;
-  const uniqueGroups = new Set(groups);
-  const resolvedGroups = Array.from(uniqueGroups);
-  $groups.set(resolvedGroups);
+export const setGroups = (groups: (string | undefined)[]) => {
+  $groups.set(groups.filter((group): group is string => typeof group === "string"));
 };
 
 
