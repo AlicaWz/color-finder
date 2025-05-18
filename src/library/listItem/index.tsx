@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import './index.css'
-//import { Copy } from 'lucide-react';
+import clsx from 'clsx';
 
 export type ListItemProps = {
     name?: string;
     hex?: string;
     rgb?: string;
     group?: string;
+    activeView?: string;
 }
 export default function ListItem({
     name,
     hex,
     rgb,
-    group
+    group,
+    activeView
 }: ListItemProps) {
     const [copiedType, setCopiedType] = useState<string | null>(null); 
 
@@ -26,7 +28,7 @@ export default function ListItem({
     };
 
     return (
-        <li className="listitem" id={name} role="listitem">
+        <li className={`listitem ${activeView === "card" ? "card" : ''}`} id={name} role="listitem">
             <span className="color-wrapper">
                 <div className="prev" style={{ background: `#${hex}` }}></div>
                 <p className="name">{name}</p>

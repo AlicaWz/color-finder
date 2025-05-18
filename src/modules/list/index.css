@@ -1,23 +1,64 @@
 .color-list {
-    margin: var(--spacing-48) 0;
+  margin: var(--spacing-48) 0;
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-16);
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-16);
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 2px;
     }
 
-    .noResults {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50vh;
+    button {
+      background: var(--med-grey);
+      padding: var(--spacing-8) var(--spacing-24);
+      border: none;
+      color: var(--color-primary);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
 
-        h4 {
-            text-align: center;
-        }
+      &.list {
+        border-radius: 8px 0 0 8px;
+      }
+
+      &.card {
+        border-radius: 0 8px 8px 0;
+      }
+
+      &.active {
+        outline: 1px solid var(--white);
+      }
+
+      &:hover {
+        background: var(--light-grey);
+      }
     }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+
+  .noResults {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+
+    h4 {
+      text-align: center;
+    }
+  }
 }
