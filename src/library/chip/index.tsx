@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react';
 import './index.css'
-import { $data, $groups, setGroups, setFilteredData} from '@system/store/data.ts';
+import { $data, $groups, setGroups, setFilteredData, $searchTerm} from '@system/store/data.ts';
 import { useState } from 'react';
 import { Check } from 'lucide-react';
 
@@ -12,8 +12,6 @@ export default function ChipButton({ groupName }: ChipButtonProps) {
     const [isActive, setIsActive] = useState(false);
     const data = useStore($data)
     const selectedGroups = useStore($groups);
-
-    console.log("$selectedGroups", selectedGroups)
 
     function getCorrectColor(group: string) {
         switch (group) {
@@ -55,46 +53,38 @@ export default function ChipButton({ groupName }: ChipButtonProps) {
     const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setIsActive(e.target.checked)
-
+    
         if (e.target.checked) {
-            // Add the selected group to the $groups store
             const updatedGroups = [...selectedGroups, value];
             setGroups(updatedGroups);
     
-            // Filter data based on all selected groups
-            const filteredItems = data.colors?.filter((color) =>
-                updatedGroups.some((group) => color.group?.includes(group ?? ''))
-            );
+            const filteredItems = data.colors?.filter((color) => {
+                const matchesSearch = color.name?.toLowerCase().includes($searchTerm.get().toLowerCase());
+                const matchesGroup = updatedGroups.some((group) => color.group?.includes(group ?? ''));
+                return matchesSearch && matchesGroup;
+            });
+    
             if (filteredItems) {
                 setFilteredData(filteredItems);
             }
         } else {
-            // Remove the unselected group from the $groups store
             const updatedGroups = selectedGroups.filter((group) => group !== value);
             setGroups(updatedGroups);
     
-            // Filter data based on the remaining selected groups
-            const filteredItems = data.colors?.filter((color) =>
-                updatedGroups.some((group) => color.group?.includes(group ?? ''))
-            );
+            const filteredItems = data.colors?.filter((color) => {
+                const matchesSearch = color.name?.toLowerCase().includes($searchTerm.get().toLowerCase());
+                const matchesGroup = updatedGroups.length
+                    ? updatedGroups.some((group) => color.group?.includes(group ?? ''))
+                    : true;
+                return matchesSearch && matchesGroup;
+            });
+     
             if (filteredItems) {
                 setFilteredData(filteredItems);
             } else {
-                // If no groups are selected, reset to all data
                 setFilteredData(data.colors || []);
             }
         }
-    
-        // if (e.target.checked) {
-        //     setGroups([...selectedGroups.filter((group) => typeof group === "string"), value]);
-
-        //     const filteredItems = data.colors?.filter((color) => color.group?.includes(value));
-        //     if (filteredItems) {
-        //         setFilteredData(filteredItems);
-        //     }
-        // } else {
-        //     setGroups(selectedGroups.filter((group) => group !== value));
-        // }
     };
 
     return (
